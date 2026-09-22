@@ -10835,3 +10835,367 @@
             border-color: var(--accent-color) !important;
             outline: none;
         }
+/* ============================================================
+ * 问卷模块样式
+ * ============================================================ */
+
+.qn-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  background: var(--primary-bg, #faf7f2);
+  color: var(--text-color, #333);
+  overflow: hidden;
+}
+
+/* ---------- 头部 ---------- */
+.qn-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+.qn-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.qn-header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.qn-icon-btn {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  color: inherit;
+  transition: background 0.15s;
+}
+
+.qn-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- 提问栏 ---------- */
+.qn-ask-bar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+.qn-input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.qn-input:focus {
+  border-color: var(--accent-color, #b8975a);
+}
+
+.qn-card-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+.qn-card-toggle input {
+  cursor: pointer;
+}
+
+.qn-send-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent-color, #b8975a);
+  color: #fff;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.qn-send-btn:hover {
+  opacity: 0.88;
+}
+
+/* ---------- 双栏 ---------- */
+.qn-columns {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.qn-col {
+  display: flex;
+  flex-direction: column;
+  background: var(--primary-bg, #faf7f2);
+  overflow: hidden;
+}
+
+.qn-col-title {
+  margin: 0;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  opacity: 0.75;
+  flex-shrink: 0;
+}
+
+.qn-list {
+  flex: 1;
+  margin: 0;
+  padding: 12px;
+  list-style: none;
+  overflow-y: auto;
+}
+
+.qn-empty {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.45;
+}
+
+/* ---------- 记录条目 ---------- */
+.qn-item {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.035);
+}
+
+.qn-item:last-child {
+  margin-bottom: 0;
+}
+
+.qn-item-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-size: 11px;
+}
+
+.qn-time {
+  opacity: 0.5;
+}
+
+.qn-badge {
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.qn-badge--done {
+  background: rgba(76, 175, 80, 0.15);
+  color: #2e7d32;
+}
+
+.qn-badge--pending {
+  background: rgba(255, 152, 0, 0.15);
+  color: #e65100;
+}
+
+.qn-badge--card {
+  background: rgba(156, 39, 176, 0.15);
+  color: #7b1fa2;
+}
+
+.qn-question {
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.qn-answer {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.1);
+  font-size: 13px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.qn-answer-label {
+  opacity: 0.55;
+  margin-right: 4px;
+}
+
+/* ---------- 回答输入 ---------- */
+.qn-reply-bar {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.qn-reply-input {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+}
+
+.qn-reply-input:focus {
+  border-color: var(--accent-color, #b8975a);
+}
+
+.qn-reply-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent-color, #b8975a);
+  color: #fff;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.qn-reply-btn:hover {
+  opacity: 0.88;
+}
+
+/* ---------- 设置面板 ---------- */
+.qn-settings {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: min(360px, calc(100vw - 36px));
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 18px;
+  border-radius: 14px;
+  background: var(--primary-bg, #fff);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  box-sizing: border-box;
+}
+
+.qn-settings-title {
+  margin: 0 0 14px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.qn-field {
+  margin-bottom: 14px;
+}
+
+.qn-field > label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.qn-field--row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.qn-field--row > label {
+  margin: 0;
+}
+
+.qn-range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qn-range input {
+  flex: 1;
+  min-width: 0;
+  padding: 7px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.qn-range input:focus {
+  border-color: var(--accent-color, #b8975a);
+}
+
+.qn-settings textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+}
+
+.qn-settings textarea:focus {
+  border-color: var(--accent-color, #b8975a);
+}
+
+/* ---------- 移动端适配 ---------- */
+@media (max-width: 640px) {
+  .qn-columns {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .qn-ask-bar {
+    flex-wrap: wrap;
+  }
+
+  .qn-input {
+    flex-basis: 100%;
+  }
+
+  .qn-settings {
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
+    width: auto;
+  }
+}
