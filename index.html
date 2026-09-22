@@ -2239,5 +2239,77 @@
     <script src="js/onboarding.js"></script> 
     <script src="js/listeners.js"></script>
     <script src="js/app.js"></script>
+        <button id="qn-open-btn" class="adv-btn" type="button">
+  <span class="adv-btn__icon">📄</span>
+  <span class="adv-btn__label">问卷</span>
+</button>
+        <!-- ============ 问卷面板 ============ -->
+<div id="qn-panel" class="qn-panel" hidden>
+  <header class="qn-header">
+    <h2 class="qn-title">📄 问卷</h2>
+    <div class="qn-header-actions">
+      <button id="qn-settings-btn" class="qn-icon-btn" title="反应时间设置" type="button">⚙️</button>
+      <button id="qn-close-btn"   class="qn-icon-btn" title="关闭" type="button">✕</button>
+    </div>
+  </header>
+
+  <!-- 提问栏 -->
+  <div class="qn-ask-bar">
+    <input id="qn-input" class="qn-input" type="text" placeholder="问 TA 一个问题…" />
+    <label class="qn-card-toggle">
+      <input id="qn-expect-card" type="checkbox" />
+      <span>字卡回复</span>
+    </label>
+    <button id="qn-send-btn" class="qn-send-btn" type="button">提问</button>
+  </div>
+
+  <!-- 双栏记录 -->
+  <div class="qn-columns">
+    <section class="qn-col">
+      <h3 class="qn-col-title">我问 TA 的</h3>
+      <ul id="qn-list-out" class="qn-list"></ul>
+    </section>
+    <section class="qn-col">
+      <h3 class="qn-col-title">TA 问我的</h3>
+      <ul id="qn-list-in" class="qn-list"></ul>
+    </section>
+  </div>
+
+  <!-- 反应时间设置 -->
+  <div id="qn-settings" class="qn-settings" hidden>
+    <h3 class="qn-settings-title">反应时间设置</h3>
+
+    <div class="qn-field">
+      <label>TA 回答我的问题（秒）</label>
+      <div class="qn-range">
+        <input id="qn-set-answer-min" type="number" min="0" step="0.5" />
+        <span>~</span>
+        <input id="qn-set-answer-max" type="number" min="0" step="0.5" />
+      </div>
+    </div>
+
+    <div class="qn-field">
+      <label>TA 主动问我问题（秒）</label>
+      <div class="qn-range">
+        <input id="qn-set-ask-min" type="number" min="0" step="1" />
+        <span>~</span>
+        <input id="qn-set-ask-max" type="number" min="0" step="1" />
+      </div>
+    </div>
+
+    <div class="qn-field qn-field--row">
+      <label for="qn-set-autoask">开启 TA 主动提问</label>
+      <input id="qn-set-autoask" type="checkbox" />
+    </div>
+
+    <div class="qn-field">
+      <label>主动提问池（每行一条）</label>
+      <textarea id="qn-set-pool" rows="5"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 问卷脚本（放在 core.js 之后） ============ -->
+<script src="js/questionnaire.js"></script>
 </body>
 </html>
